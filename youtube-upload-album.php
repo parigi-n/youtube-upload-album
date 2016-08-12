@@ -39,7 +39,7 @@ if ($handle = opendir($argv[1]))
         if (!empty($ThisFileInfo['comments']['album']))
         {
             $ThisFileInfo['comments']['album'] = array_map('ucfirst', $ThisFileInfo['comments']['album']);
-            $album = implode(' & ', $ThisFileInfo['comments']['album']);
+            $album = str_replace('"', "'", implode(' & ', $ThisFileInfo['comments']['album']));
             $description .= "Album : " . $album . "\n";
         }
         
@@ -59,7 +59,7 @@ if ($handle = opendir($argv[1]))
         if (!empty($ThisFileInfo['comments']['title']))
         {
             $ThisFileInfo['comments']['title'] = array_map('ucfirst', $ThisFileInfo['comments']['title']);
-            $title = implode(' & ', $ThisFileInfo['comments']['title']);
+            $title = str_replace('"', "'", implode(' & ', $ThisFileInfo['comments']['title']));
             $description .= "Title : " . $title . "\n";
         }
         
@@ -67,7 +67,7 @@ if ($handle = opendir($argv[1]))
         if (!empty($ThisFileInfo['comments']['artist']))
         {
             $ThisFileInfo['comments']['artist'] = array_map('ucfirst', $ThisFileInfo['comments']['artist']);
-            $artist = ucfirst(implode(' & ', $ThisFileInfo['comments']['artist']));
+            $artist = str_replace('"', "'", implode(' & ', $ThisFileInfo['comments']['artist']));
             $description .= "Artist : " . $artist . "\n";
         }
         
