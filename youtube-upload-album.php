@@ -108,7 +108,7 @@ if ($handle = opendir($argv[1]))
 --playlist \"$argv[3]\"                        \
 /tmp/tmp.avi");
     }
-    unlink("tmp/tmp_img");
-    unlink("tmp/tmp.avi");
+    unlink(sys_get_temp_dir . "tmp_img");
+    unlink(sys_get_temp_dir . "tmp.avi");
 }
 ?>
